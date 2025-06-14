@@ -1,7 +1,7 @@
 <!-- LOGO -->
 <br />
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c4725004-84ed-4f9a-966e-436b7c34ff81" alt="Logo" width="80" height="80">
+  <img src="https://github.com/user-attachments/assets/3581539a-accd-4ab4-952b-fc360bf88af7" alt="Logo" width="80" height="80">
 
   <h3 align="center">Kleinmew</h3>
 
