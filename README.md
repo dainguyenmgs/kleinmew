@@ -61,14 +61,14 @@ python cvt_mtz.py -f <duong_dan_den_file_.mtz> -s <duong_dan_ra_file_.zip> [-p <
 ### Ví dụ:
 
 ```bash
-python cvt_mtz.py "D:\Py\hn cod\theme.mtz" "D:\Py\hn cod\theme_convert.zip" -p .xml,.jpg,.png,.txt
+python cvt_mtz.py "D:\Py\hn cod\theme.mtz" "D:\Py\hn cod\mtz.zip" -p .xml,.jpg,.png,.txt
 ```
 
 Lệnh trên sẽ:
 
 * Đọc file `theme.mtz`.
 * Chuyển file `theme.mtz` thành file `.zip`, bỏ qua các file có đuôi `.xml`, `.jpg`, `.png`, `.txt`
-* Lưu kết quả vào thư mục `D:\Py\hn cod` dưới tên `theme_convert.zip`.
+* Lưu kết quả vào thư mục `D:\Py\hn cod` dưới tên `mtz.zip`.
 
 ---
 
