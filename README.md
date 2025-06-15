@@ -135,7 +135,3 @@ Lệnh trên sẽ:
 Lưu ý:
 
 * Lệnh trên dùng để tạo pattern mới từ ảnh đã chồng icon bằng cách đè lên phần icon trong ảnh bằng màu RGB 22,21,19 trùng với màu ảnh (cần resize hợp lý để che phủ toàn bộ icon)
-
-### Lưu ý
-
-* Ảnh mask cần có kênh alpha (vùng trong suốt). Vùng không trong suốt sẽ xác định vùng đặt icon.
