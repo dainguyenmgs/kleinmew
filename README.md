@@ -49,25 +49,24 @@ Chuyển đổi file `.mtz` (theme của MIUI) thành file `.zip`.
 ### Chạy từ terminal:
 
 ```bash
-python cvt_mtz.py -f <duong_dan_den_file_.mtz> -s <duong_dan_ra_file_.zip> [-p <>]
+python cvt_mtz.py -f <duong_dan_den_file_.mtz> -s <duong_dan_ra_file_.zip>
 ```
 
 ### Tham số:
 
 * `-s <output_zip>` *(bắt buộc)*: Đường dẫn đến file `.mtz`.
 * `-f <input_mtz>` *(bắt buộc)*: Đường dẫn đến file `.zip` kết quả (tự đặt tên cho file mới)
-* `-p <preserve_extensions>` *(không bắt buộc)*: Bỏ qua các file có đuôi này (mặc định: `.xml`, `.jpg`, `.png`).
 
 ### Ví dụ:
 
 ```bash
-python cvt_mtz.py "D:\Py\hn cod\theme.mtz" "D:\Py\hn cod\mtz.zip" -p .xml,.jpg,.png,.txt
+python cvt_mtz.py "D:\Py\hn cod\theme.mtz" "D:\Py\hn cod\mtz.zip"
 ```
 
 Lệnh trên sẽ:
 
 * Đọc file `theme.mtz`.
-* Chuyển file `theme.mtz` thành file `.zip`, bỏ qua các file có đuôi `.xml`, `.jpg`, `.png`, `.txt`
+* Chuyển file `theme.mtz` thành file `.zip`,
 * Lưu kết quả vào thư mục `D:\Py\hn cod` dưới tên `mtz.zip`.
 
 ---
