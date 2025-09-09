@@ -6,12 +6,7 @@ import shutil
 from pathlib import Path
 
 
-def rename_zip(folder_path: Path, preserve_exts: set):
-    if preserve_exts is None:
-        preserve_exts = {'.xml', '.png', '.jpg', '.zip'}
-    else:
-        preserve_exts.update({'.xml', '.png', '.jpg', '.zip'})
-
+def rename_zip(folder_path: Path):
     # Duyệt từng file
     for path_in in folder_path.rglob('*'):
         # Nếu là zip, giải nén và lặp lại xử lí
@@ -21,14 +16,10 @@ def rename_zip(folder_path: Path, preserve_exts: set):
             with zipfile.ZipFile(path_in, 'r') as zfp:
                 zfp.extractall(dirs)
             os.remove(path_in)
-            rename_zip(Path(dirs), preserve_exts)
-        # Nếu cần đổi tên
-        elif path_in.suffix.lower() not in preserve_exts:
-            new_path = path_in.with_suffix(path_in.suffix + '.zip')
-            path_in.rename(new_path)
+            rename_zip(Path(dirs))
 
 
-def cvt_mtz(mtz_path, output_zip_path, preserve_exts):
+def cvt_mtz(mtz_path, output_zip_path):
     temp_dir = tempfile.mkdtemp(prefix="mtz_tmp_")
     temp_path = Path(temp_dir)
 
@@ -37,7 +28,8 @@ def cvt_mtz(mtz_path, output_zip_path, preserve_exts):
         with zipfile.ZipFile(mtz_path, 'r') as zin:
             zin.extractall(temp_dir)
 
-        rename_zip(temp_path, preserve_exts)
+        # Chuyển đổi file .mtz
+        rename_zip(temp_path)
 
         # Nén thành file zip và lưu
         with zipfile.ZipFile(output_zip_path, 'w', zipfile.ZIP_DEFLATED) as zout:
@@ -55,11 +47,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=".mtz converter.")
     parser.add_argument("-f",metavar="input_mtz", help="Duong dan den file .mtz", required=True)
     parser.add_argument("-s" ,metavar="output_zip", help="Duong dan den file .zip output", required=True)
-    parser.add_argument("-p", metavar="preserve_extensions", help="Bo qua file co duoi nay")
     args = parser.parse_args()
 
-    if args.p:
-        pe = set(args.p.split(","))
-    else:
-        pe = None
-    cvt_mtz(Path(args.input_mtz), Path(args.output_zip), pe)
+    cvt_mtz(Path(args.f), Path(args.s))
